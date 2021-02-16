@@ -1,0 +1,27 @@
+#Swatch research patterns#
+watchfor /Authentication Failure/i
+        echo red bold
+        mail addresses=root\@cca26.cc.jec.ac.jp,subject="Authentication Failure"
+
+
+watchfor /sshd/i
+        echo blue
+
+
+watchfor /deny | denind | fail |failed/i
+        echo green 
+    
+watchfor	/session open/i
+		echo blue blink
+
+watchfor	/FAILED LOGIN | FAILED/i
+		echo yellow bold
+
+watchfor	/Authentication Failure/i
+		mail addresses=root\@cca26.cc.jec.ac.jp,subject=[error]
+
+watchfor	/ICMP/i
+		echo bold,blue
+
+watchfor 	/FTP ACCESS/i
+		echo red
